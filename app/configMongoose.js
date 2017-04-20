@@ -1,11 +1,6 @@
 var path = require('path');
-var knex = require('knex')({
-  client: 'sqlite3',
-  connection: {
-    filename: path.join(__dirname, '../db/shortly.sqlite')
-  },
-  useNullAsDefault: true
-});
+var mongoose = require('mongoose');
+
 var db = require('bookshelf')(knex);
 
 db.knex.schema.hasTable('urls').then(function(exists) {
